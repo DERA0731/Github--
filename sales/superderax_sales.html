@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>SUPER DERAX 事業紹介</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4 landscape; margin: 0; }
+  :root{
+    --ink:#121212; --paper:#ffffff; --sub:#5b5b5b; --line:#e4e4e4;
+    --accent:#FFD21F; --accent-ink:#121212; --soft:#f6f5f1;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html,body{ background:var(--paper); }
+  body{ font-family:"Noto Sans JP","IPAPGothic",sans-serif; color:var(--ink);
+        -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .page{ width:297mm; height:210mm; position:relative; overflow:hidden;
+         page-break-after:always; padding:13mm 15mm 11mm; display:flex; flex-direction:column; }
+  .page:last-child{ page-break-after:auto; }
+
+  .logo{ font-family:"Archivo Black","Noto Sans JP",sans-serif; letter-spacing:.04em; }
+  .topbar{ display:flex; justify-content:space-between; align-items:center;
+           font-size:8.5pt; color:var(--sub); border-bottom:1.5px solid var(--ink); padding-bottom:3mm; }
+  .topbar .logo{ font-size:12pt; color:var(--ink); }
+  .pg{ font-family:"Archivo Black",sans-serif; color:var(--ink); }
+
+  /* ---------- page 1 ---------- */
+  .hero{ display:grid; grid-template-columns: 1.25fr 1fr; gap:10mm; margin-top:8mm; }
+  .eyebrow{ display:inline-block; background:var(--ink); color:var(--accent);
+            font-size:8pt; font-weight:700; letter-spacing:.12em; padding:1.2mm 3mm; }
+  h1{ font-size:30pt; font-weight:900; line-height:1.22; margin-top:4mm; letter-spacing:.01em; }
+  h1 .hl{ background:linear-gradient(transparent 58%, var(--accent) 58%); padding:0 1mm; }
+  .lead{ font-size:10.5pt; line-height:1.85; margin-top:5mm; color:#2a2a2a; }
+  .about{ background:var(--ink); color:#fff; padding:7mm 8mm; display:flex; flex-direction:column; justify-content:space-between; }
+  .about .logo{ font-size:24pt; color:var(--accent); line-height:1; }
+  .about .co{ font-size:9pt; margin-top:2mm; color:#cfcfcf; }
+  .about dl{ margin-top:5mm; font-size:9pt; display:grid; grid-template-columns:22mm 1fr; row-gap:2.2mm; }
+  .about dt{ color:var(--accent); font-weight:700; }
+  .about dd{ color:#f0f0f0; }
+
+  h2{ font-size:13pt; font-weight:900; display:flex; align-items:center; gap:3mm; }
+  h2 .num{ font-family:"Archivo Black",sans-serif; background:var(--accent); color:var(--accent-ink);
+           font-size:9pt; padding:.8mm 2.4mm; }
+  h2 .en{ font-family:"Archivo Black",sans-serif; font-size:8pt; color:var(--sub); letter-spacing:.12em; font-weight:400; }
+
+  .services{ margin-top:8mm; }
+  .svc-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:5mm; margin-top:4mm; }
+  .svc{ border:1.5px solid var(--ink); padding:5mm 5.5mm; position:relative; }
+  .svc .tag{ font-family:"Archivo Black",sans-serif; font-size:7.5pt; letter-spacing:.14em; color:var(--sub); }
+  .svc h3{ font-size:12pt; font-weight:900; margin-top:1.5mm; line-height:1.4; }
+  .svc p{ font-size:8.8pt; line-height:1.7; margin-top:2mm; color:#333; }
+  .svc ul{ list-style:none; margin-top:2.5mm; font-size:8.6pt; line-height:1.75; }
+  .svc li::before{ content:"■"; color:var(--accent); -webkit-text-stroke:.3px var(--ink); margin-right:1.5mm; font-size:7pt; vertical-align:1px; }
+
+  .strengths{ margin-top:auto; display:grid; grid-template-columns:repeat(3,1fr); gap:5mm;
+              background:var(--soft); padding:4.5mm 6mm; }
+  .st{ display:flex; gap:3mm; align-items:flex-start; }
+  .st b{ font-family:"Archivo Black",sans-serif; font-size:16pt; line-height:1; color:var(--ink);
+         background:var(--accent); padding:1mm 2mm; }
+  .st h4{ font-size:9.8pt; font-weight:900; }
+  .st p{ font-size:8.3pt; line-height:1.6; color:#3a3a3a; margin-top:.8mm; }
+
+  /* ---------- page 2 ---------- */
+  .p2head{ display:flex; justify-content:space-between; align-items:flex-end; margin-top:6mm; }
+  .p2head h1{ font-size:21pt; margin-top:2mm; }
+  .p2head .note{ font-size:8.5pt; color:var(--sub); text-align:right; line-height:1.6; }
+
+  .projects{ display:grid; grid-template-columns:1.35fr 1fr; grid-template-rows:auto auto; gap:4.5mm; margin-top:5mm; }
+  .pj{ border:1.5px solid var(--ink); padding:4.5mm 5.5mm; display:flex; flex-direction:column; }
+  .pj.main{ grid-row:span 2; background:var(--ink); color:#fff; border-color:var(--ink); }
+  .pj .meta{ display:flex; gap:2mm; flex-wrap:wrap; }
+  .chip{ font-size:7.5pt; font-weight:700; border:1px solid currentColor; padding:.4mm 2mm; border-radius:10mm; }
+  .chip.live{ background:var(--accent); color:var(--ink); border-color:var(--accent); }
+  .pj h3{ font-size:12.5pt; font-weight:900; line-height:1.4; margin-top:2mm; }
+  .pj.main h3{ font-size:15pt; }
+  .pj .desc{ font-size:8.8pt; line-height:1.7; margin-top:1.8mm; color:#333; }
+  .pj.main .desc{ color:#e6e6e6; }
+  .role{ margin-top:2.5mm; font-size:8.4pt; line-height:1.65; }
+  .role span{ font-weight:900; background:var(--accent); color:var(--ink); padding:0 1.5mm; margin-right:1.5mm; font-size:7.8pt; }
+  .pj.main .role{ color:#f2f2f2; }
+
+  .kpis{ display:grid; grid-template-columns:repeat(3,1fr); gap:3mm; margin-top:4mm; }
+  .kpi{ border-top:2px solid var(--accent); padding-top:2mm; }
+  .kpi .v{ font-family:"Archivo Black","Noto Sans JP",sans-serif; font-size:19pt; color:var(--accent); line-height:1.05; }
+  .kpi .v small{ font-family:"Noto Sans JP",sans-serif; font-size:9pt; font-weight:700; margin-left:.5mm; }
+  .kpi .l{ font-size:7.8pt; color:#cfcfcf; margin-top:1mm; line-height:1.5; }
+
+  .flow{ margin-top:auto; padding-top:4mm; }
+  .flow .ttl{ font-size:8pt; font-weight:700; color:var(--accent); letter-spacing:.1em; }
+  .steps{ display:grid; grid-template-columns:repeat(4,1fr); margin-top:2mm; }
+  .step{ font-size:7.8pt; line-height:1.5; padding:2mm 2.5mm; border:1px solid #444; margin-right:-1px; color:#ddd; }
+  .step b{ display:block; color:#fff; font-size:8.6pt; }
+  .step.now{ background:var(--accent); color:var(--ink); border-color:var(--accent); }
+  .step.now b{ color:var(--ink); }
+
+  .contact{ margin-top:auto; display:grid; grid-template-columns:1fr auto; align-items:center; gap:8mm;
+            border-top:1.5px solid var(--ink); padding-top:4mm; }
+  .contact .msg{ font-size:10.5pt; font-weight:900; line-height:1.55; }
+  .contact .msg small{ display:block; font-size:8.3pt; font-weight:400; color:var(--sub); margin-top:.6mm; }
+  .card{ display:flex; gap:6mm; align-items:center; background:var(--ink); color:#fff; padding:3.5mm 6mm; }
+  .card .logo{ color:var(--accent); font-size:13pt; line-height:1.1; }
+  .card .who{ font-size:8pt; color:#cfcfcf; }
+  .card dl{ font-size:8.3pt; display:grid; grid-template-columns:auto auto; column-gap:3mm; row-gap:.6mm; }
+  .card dt{ color:var(--accent); font-weight:700; }
+</style>
+</head>
+<body>
+
+<!-- ================= PAGE 1 ================= -->
+<section class="page">
+  <div class="topbar">
+    <span class="logo">SUPER DERAX</span>
+    <span>会社紹介・事業のご案内｜2026年11月</span>
+    <span class="pg">01 / 02</span>
+  </div>
+
+  <div class="hero">
+    <div>
+      <span class="eyebrow">ENTERTAINMENT × TECH × CONTENT</span>
+      <h1>ファンの熱量を、<br><span class="hl">事業のかたち</span>にする。</h1>
+      <p class="lead">
+        株式会社SUPER DERAXは、タレントやクリエイター、企業の「伝えたい」を、
+        企画・コンテンツ・システムの三方向から形にするプロデュースカンパニーです。
+        写真集やイベントの企画から、クラウドファンディング、ファン向けWebサービスの開発、
+        LP・営業レターの制作までを自社で一気通貫で手がけます。
+      </p>
+    </div>
+    <div class="about">
+      <div>
+        <div class="logo">SUPER<br>DERAX</div>
+        <div class="co">株式会社SUPER DERAX</div>
+      </div>
+      <dl>
+        <dt>代表</dt><dd>CEO 小野寺 洋信</dd>
+        <dt>事業領域</dt><dd>エンタメプロデュース／ファン向けWebサービス開発・運営／コンテンツ・クリエイティブ制作</dd>
+        <dt>Web</dt><dd>superderax.jp</dd>
+        <dt>X</dt><dd>@superderax2026</dd>
+      </dl>
+    </div>
+  </div>
+
+  <div class="services">
+    <h2><span class="num">01</span>提供サービス<span class="en">WHAT WE DO</span></h2>
+    <div class="svc-grid">
+      <div class="svc">
+        <div class="tag">PRODUCE</div>
+        <h3>エンタメ・プロデュース</h3>
+        <p>写真集やイベントを、企画から収益化の設計まで一括でプロデュースします。</p>
+        <ul>
+          <li>写真集・フォトブックの企画と制作進行</li>
+          <li>クラウドファンディングのリターン設計と運営</li>
+          <li>写真展・お渡し会・トークショーの企画運営</li>
+          <li>物販・決済の体制づくり（POS／キャッシュレス）</li>
+        </ul>
+      </div>
+      <div class="svc">
+        <div class="tag">FAN TECH</div>
+        <h3>ファン向けWebサービス<br>「gfans」</h3>
+        <p>自社開発のオンラインくじサービスです。タレントごとのデジタルくじを素早く立ち上げられます。</p>
+        <ul>
+          <li>タレント・作品ごとのオリジナルくじ</li>
+          <li>オンラインとリアルイベントの両方に対応</li>
+          <li>上位賞の当選演出などのカスタマイズ</li>
+          <li>企画・開発・運用をすべて自社で対応</li>
+        </ul>
+      </div>
+      <div class="svc">
+        <div class="tag">CONTENT</div>
+        <h3>コンテンツ・クリエイティブ</h3>
+        <p>ファンや見込み顧客に「届く」コンテンツを、企画・撮影・文章で制作します。</p>
+        <ul>
+          <li>SNS向け縦型ショート動画の撮影ディレクション</li>
+          <li>プロジェクトLP（ランディングページ）の制作</li>
+          <li>経営者向けセールスレター・DM文面の制作</li>
+          <li>営業リストを使った宛名差し込みでの量産化</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="strengths">
+    <div class="st"><b>1</b><div><h4>企画から実装まで一気通貫</h4><p>企画・LP・Webシステム・運営まで社内で完結。外注の待ち時間がありません。</p></div></div>
+    <div class="st"><b>2</b><div><h4>スピードと小回り</h4><p>少数精鋭のチームなので、方針が決まればすぐに形にして公開まで進めます。</p></div></div>
+    <div class="st"><b>3</b><div><h4>パートナーネットワーク</h4><p>出版社・印刷会社・ギャラリーなどと連携し、制作から物販・発送まで対応します。</p></div></div>
+  </div>
+</section>
+
+<!-- ================= PAGE 2 ================= -->
+<section class="page">
+  <div class="topbar">
+    <span class="logo">SUPER DERAX</span>
+    <span>会社紹介・事業のご案内｜2026年11月</span>
+    <span class="pg">02 / 02</span>
+  </div>
+
+  <div class="p2head">
+    <div>
+      <h2><span class="num">02</span>進行中のプロジェクト<span class="en">CURRENT WORKS</span></h2>
+      <h1>いま、SUPER DERAXが動かしていること。</h1>
+    </div>
+    <p class="note">2026年11月時点の主な取り組み<br>※クライアント名・タレント名は掲載を控えています</p>
+  </div>
+
+  <div class="projects">
+    <!-- main project -->
+    <div class="pj main">
+      <div class="meta"><span class="chip live">進行中</span><span class="chip">出版社と協業</span><span class="chip">クラウドファンディング</span></div>
+      <h3>人気タレント 15周年記念<br>写真集プロジェクト</h3>
+      <p class="desc">
+        15周年を記念した写真集を軸に、クラウドファンディング、写真展、ファンイベントを組み合わせた複合プロジェクトです。
+        応援プランからプレミアムな体験型プランまで、ファンの関わり方に合わせて多層的なリターンを設計しています。
+      </p>
+      <p class="role"><span>担当範囲</span>全体プロデュース／LP制作／リターン設計／スケジュール管理／写真展の運営体制・物販・決済の構築</p>
+
+      <div class="kpis">
+        <div class="kpi"><div class="v">12.1<small>開始予定</small></div><div class="l">クラウドファンディング<br>開始予定日（2026年）</div></div>
+        <div class="kpi"><div class="v">300<small>冊</small></div><div class="l">シリアルナンバー・サイン入り<br>限定特装版</div></div>
+        <div class="kpi"><div class="v">10<small>種以上</small></div><div class="l">お渡し会・トークショー・<br>体験型などのリターン</div></div>
+      </div>
+
+      <div class="flow">
+        <div class="ttl">ROADMAP</div>
+        <div class="steps">
+          <div class="step now"><b>企画・設計</b>リターン設計<br>LP制作（現在）</div>
+          <div class="step"><b>クラファン</b>2026年12月<br>開始予定</div>
+          <div class="step"><b>写真展</b>展示・物販<br>グッズ販売</div>
+          <div class="step"><b>イベント</b>お渡し会・トーク<br>海外開催も検討</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pj">
+      <div class="meta"><span class="chip live">運用中</span><span class="chip">自社サービス</span></div>
+      <h3>オンラインくじ「gfans」</h3>
+      <p class="desc">タレントごとのオリジナルデジタルくじを提供しています。リアルイベント用には、会場の画面で映える専用表示モードと、上位賞の当選時に盛り上がる演出を実装しました。</p>
+      <p class="role"><span>担当範囲</span>サービス企画／開発／運用・イベント現場サポート</p>
+    </div>
+
+    <div class="pj">
+      <div class="meta"><span class="chip live">進行中</span><span class="chip">出版コンサル会社</span></div>
+      <h3>企業出版の営業レター制作支援</h3>
+      <p class="desc">経営者・医療法人向けに「挨拶状＋個別提案書」の2枚構成の手紙を設計しました。営業リストから宛名や法人名を差し込み、個別感を保ったまま量産できる仕組みづくりも進めています。</p>
+      <p class="role"><span>担当範囲</span>構成設計／コピーライティング／制作フローの効率化</p>
+    </div>
+  </div>
+
+  <div class="contact">
+    <div class="msg">
+      写真集・イベント・クラファン・ファン向けWebサービスのご相談はお気軽にどうぞ。
+      <small>企画段階のアイデアでも大丈夫です。目的とご予算に合わせて、最適な進め方をご提案します。</small>
+    </div>
+    <div class="card">
+      <div>
+        <div class="logo">SUPER DERAX</div>
+        <div class="who">CEO 小野寺 洋信</div>
+      </div>
+      <dl>
+        <dt>Mail</dt><dd>onodera@superderax.jp</dd>
+        <dt>Tel</dt><dd>080-4340-7603</dd>
+        <dt>Web</dt><dd>superderax.jp</dd>
+        <dt>X</dt><dd>@superderax2026</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
