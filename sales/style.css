@@ -1,0 +1,146 @@
+
+  @page { size: A4 landscape; margin: 0; }
+  :root{
+    --ink:#121212; --paper:#ffffff; --sub:#5b5b5b; --line:#e4e4e4;
+    --accent:#FFD21F; --accent-ink:#121212; --soft:#f6f5f1;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html,body{ background:var(--paper); }
+  body{ font-family:"Noto Sans JP","IPAPGothic",sans-serif; color:var(--ink);
+        -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .page{ width:297mm; height:210mm; position:relative; overflow:hidden;
+         page-break-after:always; padding:13mm 15mm 11mm; display:flex; flex-direction:column; }
+  .page:last-child{ page-break-after:auto; }
+
+  .logo{ font-family:"Archivo Black","Noto Sans JP",sans-serif; letter-spacing:.04em; }
+  .topbar{ display:flex; justify-content:space-between; align-items:center;
+           font-size:8.5pt; color:var(--sub); border-bottom:1.5px solid var(--ink); padding-bottom:3mm; }
+  .topbar .logo{ font-size:12pt; color:var(--ink); }
+  .pg{ font-family:"Archivo Black",sans-serif; color:var(--ink); }
+
+  /* ---------- page 1 ---------- */
+  .hero{ display:grid; grid-template-columns: 1.25fr 1fr; gap:10mm; margin-top:8mm; }
+  .eyebrow{ display:inline-block; background:var(--ink); color:var(--accent);
+            font-size:8pt; font-weight:700; letter-spacing:.12em; padding:1.2mm 3mm; }
+  h1{ font-size:30pt; font-weight:900; line-height:1.22; margin-top:4mm; letter-spacing:.01em; }
+  h1 .hl{ background:linear-gradient(transparent 58%, var(--accent) 58%); padding:0 1mm; }
+  .lead{ font-size:10.5pt; line-height:1.85; margin-top:5mm; color:#2a2a2a; }
+  .about{ background:var(--ink); color:#fff; padding:7mm 8mm; display:flex; flex-direction:column; justify-content:space-between; }
+  .about .logo{ font-size:24pt; color:var(--accent); line-height:1; }
+  .about .co{ font-size:9pt; margin-top:2mm; color:#cfcfcf; }
+  .about dl{ margin-top:5mm; font-size:9pt; display:grid; grid-template-columns:22mm 1fr; row-gap:2.2mm; }
+  .about dt{ color:var(--accent); font-weight:700; }
+  .about dd{ color:#f0f0f0; }
+
+  h2{ font-size:13pt; font-weight:900; display:flex; align-items:center; gap:3mm; }
+  h2 .num{ font-family:"Archivo Black",sans-serif; background:var(--accent); color:var(--accent-ink);
+           font-size:9pt; padding:.8mm 2.4mm; }
+  h2 .en{ font-family:"Archivo Black",sans-serif; font-size:8pt; color:var(--sub); letter-spacing:.12em; font-weight:400; }
+
+  .services{ margin-top:8mm; }
+  .svc-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:5mm; margin-top:4mm; }
+  .svc{ border:1.5px solid var(--ink); padding:5mm 5.5mm; position:relative; }
+  .svc .tag{ font-family:"Archivo Black",sans-serif; font-size:7.5pt; letter-spacing:.14em; color:var(--sub); }
+  .svc h3{ font-size:12pt; font-weight:900; margin-top:1.5mm; line-height:1.4; }
+  .svc p{ font-size:8.8pt; line-height:1.7; margin-top:2mm; color:#333; }
+  .svc ul{ list-style:none; margin-top:2.5mm; font-size:8.6pt; line-height:1.75; }
+  .svc li::before{ content:"■"; color:var(--accent); -webkit-text-stroke:.3px var(--ink); margin-right:1.5mm; font-size:7pt; vertical-align:1px; }
+
+  .strengths{ margin-top:auto; display:grid; grid-template-columns:repeat(3,1fr); gap:5mm;
+              background:var(--soft); padding:4.5mm 6mm; }
+  .st{ display:flex; gap:3mm; align-items:flex-start; }
+  .st b{ font-family:"Archivo Black",sans-serif; font-size:16pt; line-height:1; color:var(--ink);
+         background:var(--accent); padding:1mm 2mm; }
+  .st h4{ font-size:9.8pt; font-weight:900; }
+  .st p{ font-size:8.3pt; line-height:1.6; color:#3a3a3a; margin-top:.8mm; }
+
+  /* ---------- page 2 ---------- */
+  .p2head{ display:flex; justify-content:space-between; align-items:flex-end; margin-top:6mm; }
+  .p2head h1{ font-size:21pt; margin-top:2mm; }
+  .p2head .note{ font-size:8.5pt; color:var(--sub); text-align:right; line-height:1.6; }
+
+  .projects{ display:grid; grid-template-columns:1.35fr 1fr; grid-template-rows:auto auto; gap:4.5mm; margin-top:5mm; }
+  .pj{ border:1.5px solid var(--ink); padding:4.5mm 5.5mm; display:flex; flex-direction:column; }
+  .pj.main{ grid-row:span 2; background:var(--ink); color:#fff; border-color:var(--ink); }
+  .pj .meta{ display:flex; gap:2mm; flex-wrap:wrap; }
+  .chip{ font-size:7.5pt; font-weight:700; border:1px solid currentColor; padding:.4mm 2mm; border-radius:10mm; }
+  .chip.live{ background:var(--accent); color:var(--ink); border-color:var(--accent); }
+  .pj h3{ font-size:12.5pt; font-weight:900; line-height:1.4; margin-top:2mm; }
+  .pj.main h3{ font-size:15pt; }
+  .pj .desc{ font-size:8.8pt; line-height:1.7; margin-top:1.8mm; color:#333; }
+  .pj.main .desc{ color:#e6e6e6; }
+  .role{ margin-top:2.5mm; font-size:8.4pt; line-height:1.65; }
+  .role span{ font-weight:900; background:var(--accent); color:var(--ink); padding:0 1.5mm; margin-right:1.5mm; font-size:7.8pt; }
+  .pj.main .role{ color:#f2f2f2; }
+
+  .kpis{ display:grid; grid-template-columns:repeat(3,1fr); gap:3mm; margin-top:4mm; }
+  .kpi{ border-top:2px solid var(--accent); padding-top:2mm; }
+  .kpi .v{ font-family:"Archivo Black","Noto Sans JP",sans-serif; font-size:19pt; color:var(--accent); line-height:1.05; }
+  .kpi .v small{ font-family:"Noto Sans JP",sans-serif; font-size:9pt; font-weight:700; margin-left:.5mm; }
+  .kpi .l{ font-size:7.8pt; color:#cfcfcf; margin-top:1mm; line-height:1.5; }
+
+  .flow{ margin-top:auto; padding-top:4mm; }
+  .flow .ttl{ font-size:8pt; font-weight:700; color:var(--accent); letter-spacing:.1em; }
+  .steps{ display:grid; grid-template-columns:repeat(4,1fr); margin-top:2mm; }
+  .step{ font-size:7.8pt; line-height:1.5; padding:2mm 2.5mm; border:1px solid #444; margin-right:-1px; color:#ddd; }
+  .step b{ display:block; color:#fff; font-size:8.6pt; }
+  .step.now{ background:var(--accent); color:var(--ink); border-color:var(--accent); }
+  .step.now b{ color:var(--ink); }
+
+  .contact{ margin-top:auto; display:grid; grid-template-columns:1fr auto; align-items:center; gap:8mm;
+            border-top:1.5px solid var(--ink); padding-top:4mm; }
+  .contact .msg{ font-size:10.5pt; font-weight:900; line-height:1.55; }
+  .contact .msg small{ display:block; font-size:8.3pt; font-weight:400; color:var(--sub); margin-top:.6mm; }
+  .card{ display:flex; gap:6mm; align-items:center; background:var(--ink); color:#fff; padding:3.5mm 6mm; }
+  .card .logo{ color:var(--accent); font-size:13pt; line-height:1.1; }
+  .card .who{ font-size:8pt; color:#cfcfcf; }
+  .card dl{ font-size:8.3pt; display:grid; grid-template-columns:auto auto; column-gap:3mm; row-gap:.6mm; }
+  .card dt{ color:var(--accent); font-weight:700; }
+
+  /* ---------- tailored versions ---------- */
+  .target{ display:inline-block; border:1.5px solid var(--ink); font-size:8pt; font-weight:900; padding:1mm 3mm; margin-left:2mm; }
+  .pains{ margin-top:7mm; display:grid; grid-template-columns:auto 1fr; gap:6mm; align-items:stretch; }
+  .pains .lbl{ background:var(--ink); color:var(--accent); font-weight:900; font-size:10pt; writing-mode:vertical-rl;
+               letter-spacing:.3em; padding:2mm 2.5mm; text-align:center; }
+  .pains ul{ list-style:none; display:grid; grid-template-columns:repeat(3,1fr); gap:4mm; }
+  .pains li{ background:var(--soft); padding:3.5mm 4.5mm; font-size:9.3pt; font-weight:700; line-height:1.55; position:relative; }
+  .pains li small{ display:block; font-weight:400; font-size:8pt; color:var(--sub); margin-top:1mm; }
+  .pains li::before{ content:"“"; font-family:"Archivo Black",sans-serif; font-size:22pt; color:var(--accent);
+                     -webkit-text-stroke:.6px var(--ink); position:absolute; right:3mm; top:-1mm; }
+  .services.tight{ margin-top:6mm; }
+  .svc .fit{ margin-top:2.5mm; font-size:8.2pt; line-height:1.6; border-top:1px dashed #bbb; padding-top:2mm; color:#222; }
+  .svc .fit b{ background:var(--accent); padding:0 1.2mm; margin-right:1mm; font-size:7.6pt; }
+  .howto{ margin-top:3.5mm; }
+  .howto .steps .step{ border-color:var(--ink); color:#333; }
+  .howto .steps .step b{ color:var(--ink); }
+  .howto .ttl{ color:var(--ink); }
+  /* compact overrides for tailored versions */
+  .page{ padding:11mm 14mm 9mm; }
+  h1{ font-size:24pt; margin-top:3mm; }
+  .lead{ font-size:9.6pt; line-height:1.75; margin-top:3mm; }
+  .pains{ margin-top:5mm; }
+  .pains li{ padding:2.8mm 4mm; font-size:9pt; }
+  .services.tight{ margin-top:5mm; }
+  .svc-grid{ margin-top:3mm; gap:4mm; }
+  .svc{ padding:4mm 4.8mm; }
+  .svc h3{ font-size:11.2pt; }
+  .svc p{ font-size:8.4pt; line-height:1.6; margin-top:1.5mm; }
+  .svc ul{ font-size:8.3pt; line-height:1.65; margin-top:1.8mm; }
+  .svc .fit{ font-size:7.9pt; margin-top:2mm; padding-top:1.6mm; }
+  .strengths{ margin-top:4mm; padding:3.5mm 5mm; }
+  .st p{ font-size:7.9pt; }
+  .p2head{ margin-top:4mm; }
+  .p2head h1{ font-size:18pt; }
+  .projects{ margin-top:3.5mm; gap:3.5mm; }
+  .pj{ padding:3.8mm 5mm; }
+  .pj h3{ font-size:11.5pt; margin-top:1.5mm; }
+  .pj.main h3{ font-size:14pt; }
+  .pj .desc{ font-size:8.4pt; line-height:1.6; margin-top:1.4mm; }
+  .role{ margin-top:1.8mm; font-size:8pt; }
+  .kpis{ margin-top:3mm; }
+  .kpi .v{ font-size:17pt; }
+  .flow{ padding-top:3mm; }
+  .howto{ margin-top:3mm; padding-top:0; }
+  .step{ padding:1.6mm 2.5mm; }
+  .contact{ margin-top:3mm; padding-top:3mm; }
+  .card{ padding:3mm 5mm; }
